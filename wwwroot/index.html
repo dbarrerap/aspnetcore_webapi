@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+    <link rel="stylesheet" href="css/style.css">
+    <title>To-Do API CRUD</title>
+</head>
+<body>
+    <div class="container">
+    <h1>To-Do API CRUD</h1>
+    <h3>Create</h3>
+    <form action="javascript:void(0);" method="post" onsubmit="addItem()" class="row row-cols-lg-auto g-3">
+        <div class="col-12">
+            <input type="text" id="add-name" class="form-control" placeholder="New task">
+        </div>
+        <div class="col-12">
+            <button type="submit" class="btn btn-primary">Add</button>
+        </div>
+    </form>
+    <div id="editForm">
+        <h3>Edit</h3>
+        <form action="javascript:void(0);" method="post" onsubmit="updateItem()" class="row row-cols-lg-auto g3">
+            <input type="hidden" id="edit-id">
+            <div class="col-2">
+                <input type="checkbox" id="edit-isComplete" class="form-check-input">
+            </div>
+            <div class="col-4">
+                <input type="text" id="edit-name" class="form-control">
+            </div>
+            <div class="col-6">
+                <input type="submit" value="Update" class="btn btn-outline-primary">
+            </div>
+            <div class="col-6">
+                <a onclick="closeInput()" class="btn btn-outline-danger">&#10006;</a>
+            </div>
+        </form>
+    </div>
+
+    <p id="counter"></p>
+
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Is Complete?</th>
+                <th>Name</th>
+                <th></th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody id="tasks"></tbody>
+    </table>
+    </div>
+    <script src="js/script.js"></script>
+    <script>
+        getItems();
+    </script>
+</body>
+</html>
